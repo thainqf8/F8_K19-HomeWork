@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+</head>
+<body>
+
+    <form method="post" action="https://api-gateway.f8.edu.vn/action_page.php">
+        <fieldset>
+            <legend>Thông tin cơ bản</legend>
+            <div>
+                <label for="name">Họ và tên:</label>
+                <input type="text" id="name" name="name" placeholder="Nguyễn Văn A" tabindex="1" required autofocus>
+            </div>
+            <br>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="example@gmail.com" tabindex="2" required>
+            </div>
+            <br>
+            <div>
+                <label for="password">Mật khẩu: </label>
+                <input type="password" id="password" name="password" minlength="6" autocomplete="off" tabindex="3">
+            </div>
+            <br>
+            <div>
+                <label for="confirm_password">Nhập lại mật khẩu: </label>
+                <input type="password" id="confirm_password" name="confirm_password" tabindex="4" required>
+            </div>
+            <br>
+            <div>
+                <label for="phone">Số điện thoại: </label>
+                <input type="tel" id="phone" name="phone" placeholder="0xxxxxxxxx" pattern="0[0-9]{9}" tabindex="5">
+            </div>
+            <br>
+            <div>
+                <label for="birthday">Ngày sinh: </label>
+                <input type="date" id="birthday" name="birthday" tabindex="6" required>
+            </div>
+            <br>
+            <div>
+                <label for="age">Tuổi: </label>
+                <input type="number" id="age" name="age" min="1" max="120" tabindex="7">
+            </div>
+            <br>
+            <div>
+                <label for="website">Website cá nhân: </label>
+                <input type="url" id="website" name="website" placeholder="https://..." tabindex="8">
+            </div>
+            <br>
+            <div>
+                <label for="address">Địa chỉ: </label>
+                <input type="text" id="address" name="address" placeholder="Số nhà, đường, phường/xã" tabindex="9">
+            </div>
+            <br>
+            <div>
+                <label for="zipcode">Mã bưu chính: </label>
+                <input type="text" id="zipcode" name="zipcode" placeholder="700000" maxlength="6" tabindex="10">
+            </div>
+            <br>
+        </fieldset>
+        <fieldset>
+            <legend>Thông tin bổ sung</legend>
+            <div>
+                <label for="gender">Giới tính: </label>
+                <input type="radio" id="gender" name="gender" value="male" tabindex="11" required>Nam
+                <input type="radio" id="gender" name="gender" value="female" required>Nữ
+                <input type="radio" id="gender" name="gender" value="others" required>Khác
+            </div>
+            <br>
+            <div>
+                <label for="hobby">Sở thích: </label>
+                <input type="checkbox" id="hobby" name="hobby" value="reading" tabindex="14">Đọc sách
+                <input type="checkbox" id="hobby" name="hobby" value="listening_to_music">Nghe nhạc
+                <input type="checkbox" id="hobby" name="hobby" value="traveling">Du lịch
+                <input type="checkbox" id="hobby" name="hobby" value="coding">Lập trình
+                <input type="checkbox" id="hobby" name="hobby" value="cooking">Nấu ăn
+                <input type="checkbox" id="hobby" name="hobby" value="working_out">Thể thao
+            </div>
+            <br>
+            <div>
+                <label for="education">Trình độ học vấn</label>
+                <select id="education" name="education">
+                    <option value="" disabled selected>-- Vui lòng chọn --</option>
+                    <option value="high_school">Trung học</option>
+                    <option value="college">Cao đẳng</option>
+                    <option value="university">Đại học</option>
+                    <option value="postgraduate">Sau đại học</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="city">Tỉnh/ Thành phố:</label>
+                <select id="city" name="city" multiple size="5">
+                    <option value="an_giang">Tỉnh An Giang</option>
+                    <option value="bac_ninh">Tỉnh Bắc Ninh</option>
+                    <option value="cao_bang">Tỉnh Cao Bằng</option>
+                    <option value="can_tho">TP. Cần Thơ</option>
+                    <option value="ca_mau">Tỉnh Cà Mau</option>
+                    <option value="da_nang">TP. Đà Nẵng</option>
+                    <option value="dak_lak">Tỉnh Đắk Lắk</option>
+                    <option value="dien_bien">Tỉnh Điện Biên</option>
+                    <option value="dong_nai">Tỉnh Đồng Nai</option>
+                    <option value="dong_thap">Tỉnh Đồng Tháp</option>
+                    <option value="gia_lai">Tỉnh Gia Lai</option>
+                    <option value="ha_noi">TP. Hà Nội</option>
+                    <option value="ha_tinh">Tỉnh Hà Tĩnh</option>
+                    <option value="hai_phong">TP. Hải Phòng</option>
+                    <option value="ho_chi_minh">TP. Hồ Chí Minh</option>
+                    <option value="hue">TP. Huế</option>
+                    <option value="hung_yen">Tỉnh Hưng Yên</option>
+                    <option value="khanh_hoa">Tỉnh Khánh Hòa</option>
+                    <option value="lai_chau">Tỉnh Lai Châu</option>
+                    <option value="lam_dong">Tỉnh Lâm Đồng</option>
+                    <option value="lang_son">Tỉnh Lạng Sơn</option>
+                    <option value="lao_cai">Tỉnh Lào Cai</option>
+                    <option value="nghe_an">Tỉnh Nghệ An</option>
+                    <option value="ninh_binh">Tỉnh Ninh Bình</option>
+                    <option value="phu_tho">Tỉnh Phú Thọ</option>
+                    <option value="quang_ngai">Tỉnh Quảng Ngãi</option>
+                    <option value="quang_ninh">Tỉnh Quảng Ninh</option>
+                    <option value="quang_tri">Tỉnh Quảng Trị</option>
+                    <option value="son_la">Tỉnh Sơn La</option>
+                    <option value="tay_ninh">Tỉnh Tây Ninh</option>
+                    <option value="thai_nguyen">Tỉnh Thái Nguyên</option>
+                    <option value="thanh_hoa">Tỉnh Thanh Hóa</option>
+                    <option value="tuyen_quang">Tỉnh Tuyên Quang</option>
+                    <option value="vinh_long">Tỉnh Vĩnh Long</option>
+                </select>
+            </div>
+            <br>
+            <div>
+
+            </div>
+
+        </fieldset>
+        <br>
+        <input type="submit" name="submit" value="Đăng ký ngay" tabindex="">
+        <input type="reset" name="reset" value="Nhập lại" tabindex="">
+
+
+
+    </form>
+
+</body>
+</html>
