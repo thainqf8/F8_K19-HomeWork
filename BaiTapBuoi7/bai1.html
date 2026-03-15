@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <style>
+        /*style common*/
+        h1 {
+            color: #f9fafb;
+            background: #f98000;
+        }
+
+        body > div > label {
+            color: #4b5563;
+            background: #eef2ff;
+        }
+        .output > p {
+            background: #ffffff;
+            color: #9ca3af;
+        }
+
+        .output {
+            background: #f9fafb;
+            color: #9ca3af;
+        }
+
+        /*style cho nhóm 1: Chọn giao diện - Khu vực 1 */
+        div > input[id='light']:checked ~ label[class='light'] {
+            background: #fff8cc;
+            color: #8b5e00;
+        }
+
+        div > input[id='dark']:checked ~ label[class='dark'] {
+            background: #111827;
+            color: #f9fafb;
+        }
+
+        /*style cho nhóm 1: Chọn giao diện - Khu vực 2 */
+        input[id='light']:checked ~ .output > p[class='light']  {
+            background: #fff8cc;
+            color: #111827;
+        }
+
+        input[id='dark']:checked ~ .output > p[class='dark']  {
+            background: #111827;
+            color: #f9fafb;
+        }
+
+        /*style cho nhóm 2: Chọn màu chủ đạo - Khu vực 1 */
+        div > input[id='red']:checked ~ label[class='red'] {
+            background: #fee2e2;
+            color: #7f1d1d;
+        }
+
+        div > input[id='blue']:checked ~ label[class='blue'] {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        div > input[id='green']:checked ~ label[class='green'] {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        /*style cho nhóm 2: Chọn màu chủ đạo - Khu vực 2 */
+        input[id='red']:checked ~ .output > p[class='red']  {
+            background: #fee2e2;
+            color: #7f1d1d;
+        }
+
+        input[id='blue']:checked ~ .output > p[class='blue']  {
+            background: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        input[id='green']:checked ~ .output > p[class='green']  {
+            background: #dcfce7;
+            color: #166534;
+        }
+
+        /*style cho nhóm 3: Chọn ngôn ngữ - Khu vực 1 */
+        div > input[id='vi']:checked ~ label[class='vi'] {
+            background: #bbf7d0;
+            color: #166534;
+        }
+
+        div > input[id='en']:checked ~ label[class='en'] {
+            background: #bfdbfe;
+            color: #1d4ed8;
+        }
+
+        /*style cho nhóm 3: Chọn ngôn ngữ - Khu vực 2 */
+        input[id='vi']:checked ~ .output > p[class='vi']  {
+            color: #166534;
+        }
+
+        input[id='en']:checked ~ .output > p[class='en']  {
+            color: #1d4ed8;
+        }
+
+        /*style cho nhóm 4: Tuỳ chọn bổ sung - Khu vực 1 */
+        div > input[id='advanced']:checked ~ label[class='advanced'] {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        div > input[id='eco']:checked ~ label[class='eco'] {
+            background: #bbf7d0;
+            color: #15803d;
+        }
+
+        /*style cho nhóm 4: Tuỳ chọn bổ sung - Khu vực 2 */
+        div > input[id='warning']:checked ~ label[class='warning'] {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        input[id='advanced']:checked ~ .output > p[class='advanced']  {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        input[id='eco']:checked ~ .output > p[class='eco']  {
+            background: #bbf7d0;
+            color: #15803d;
+        }
+
+        input[id='warning']:checked ~ .output > p[class='warning']  {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Trung tâm cấu hình giao diện</h1>
+    <div>
+        <!--Chọn giao diện-->
+        <p>Chọn giao diện (Theme):</p>
+        <input id="light" type="radio" name="theme">
+        <label class="light" for="light">Light</label>
+        <input id="dark" type="radio" name="theme">
+        <label class="dark" for="dark">Dark</label>
+
+        <!--Chọn màu chủ đạo-->
+        <p>Chọn màu chủ đạo (Color):</p>
+        <input id="red" type="radio" name="color">
+        <label class="red" for="red">Red</label>
+        <input id="blue" type="radio" name="color">
+        <label class="blue" for="blue">Blue</label>
+        <input id="green" type="radio" name="color">
+        <label class="green" for="green">Green</label>
+
+        <!--Chọn ngôn ngữ-->
+        <p>Ngôn ngữ (Language):</p>
+        <input id="vi" type="radio" name="lang">
+        <label class="vi" for="vi">VI</label>
+        <input id="en" type="radio" name="lang">
+        <label class="en" for="en">EN</label>
+
+        <!--Tuỳ chọn bổ sung-->
+        <p>Tuỳ chọn bổ sung (Options - Checkbox):</p>
+        <input id="advanced" type="checkbox" name="options">
+        <label for="advanced">Hiển thị mô tả nâng cao</label>
+        <input id="eco" type="checkbox" name="langoptions">
+        <label for="eco">Bật chế độ Eco</label>
+        <input id="warning" type="checkbox" name="langoptions">
+        <label for="warning">Hiển thị cảnh báo quan trọng</label>
+
+        <!--Kết quả mong đợi -->
+        <div class="output">
+            <p class="light">Theme Light: Giao diện sáng, chữ đen.</p>
+            <p class="dark">Theme Dark: Giao diện tối, chữ sáng.</p>
+            <p class="red">Màu Red: được nhấn mạnh khi chọn Red.</p>
+            <p class="blue">Màu Blue: được nhấn mạnh khi chọn Blue.</p>
+            <p class="green">Màu Green: được nhấn mạnh khi chọn Green.</p>
+            <p class="vi">[VI] Xin chào bạn! Khi chọn VI, dòng này rõ hơn.</p>
+            <p class="en">[EN] Hello, world! Khi chọn EN, dòng này rõ hơn.</p>
+            <p class="advanced">Mô tả nâng cao: giải thích kỹ hơn về cách các lựa chọn đang ảnh hưởng giao diện.</p>
+            <p class="eco">Chế độ Eco: mô phỏng trạng thái tiết kiệm tài nguyên cho giao diện.</p>
+            <p class="warning">Cảnh báo quan trọng: khu vực dùng để nhấn mạnh thông tin hệ thống.</p>
+        </div>
+    </div>
+</body>
+</html>
