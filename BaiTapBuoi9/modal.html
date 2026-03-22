@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal CSS Only</title>
+    <style>
+        /*1. CÀI ĐẶT CƠ BẢN*/
+        body {
+            margin: 0;
+            padding: 20px;
+        }
+
+        #modal-toggle {
+            display: none;
+        }
+
+        /*2. NÚT MỞ MODAL*/
+        .open-btn {
+            display: inline-block;
+            background-color: #3b82f6; /* Nền xanh dương */
+            color: #ffffff; /* Chữ trắng */
+            padding: 12px 24px;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        /*3. LỚP NỀN TỐI (OVERLAY) - ĐỒNG THỜI LÀ LABEL*/
+        .overlay {
+            /* Ẩn hoàn toàn theo mặc định */
+            display: none;
+            background-color: rgba(0, 0, 0, 0.5); /* Nền overlay mờ */
+            width: 100%;
+            min-height: 500px; /* Khai báo chiều cao phủ rộng thay cho position */
+
+            text-align: center;
+            padding-top: 150px;
+
+        }
+
+        /* 4. HỘP MODAL VÀ NỘI DUNG*/
+        .modal {
+            /* inline-block giúp khối modal chịu tác dụng của text-align: center từ thẻ cha */
+            display: inline-block;
+            background-color: #ffffff;
+            color: #333333;
+            padding: 40px 60px;
+            /* Căn giữa chữ bên trong lại cho đẹp, không bị ảnh hưởng bởi thẻ cha */
+            text-align: center;
+        }
+
+        .modal p {
+            margin: 0 0 20px 0;
+            font-size: 18px;
+        }
+
+        /* Nút đóng */
+        .close-btn {
+            display: inline-block;
+            background-color: #ef4444; /* Nền đỏ */
+            color: #ffffff; /* Chữ trắng */
+            padding: 10px 30px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /*5. LOGIC HIỂN THỊ */
+
+        /* Khi checkbox được check, thẻ .overlay chuyển từ none sang block */
+        #modal-toggle:checked ~ .overlay {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<input type="checkbox" id="modal-toggle">
+
+<label for="modal-toggle" class="open-btn">Mở modal</label>
+
+<label for="modal-toggle" class="overlay">
+
+    <div class="modal">
+        <p>Đây là nội dung thông báo!</p>
+
+        <div class="close-btn">Đóng</div>
+    </div>
+
+</label>
+
+</body>
+</html>

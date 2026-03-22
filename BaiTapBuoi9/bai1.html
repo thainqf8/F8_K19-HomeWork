@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Tạo hình bằng CSS Border</title>
+    <style>
+        .shape-item {
+            display: inline-block;
+            vertical-align: bottom;
+            text-align: center;
+            margin-right: 35px;
+            margin-bottom: 30px;
+        }
+
+        .shape-label {
+            margin-top: 30px;
+            font-family: sans-serif;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .shape-item > div:first-child {
+            margin: 0 auto;
+        }
+
+        .hinh-vuong {
+            width: 60px;
+            height: 60px;
+            border-width: 3px; border-style: solid;
+            border-color: #d9534f;
+        }
+
+        .hinh-chu-nhat {
+            width: 120px;
+            height: 60px;
+            border-width: 3px;
+            border-style: solid;
+            border-color: #3498db;
+        }
+
+        .tam-giac-len {
+            width: 0;
+            height: 0;
+            border-width: 0 40px 70px 40px;
+            border-style: solid;
+            border-color: transparent transparent #5cb85c transparent;
+        }
+
+        .tam-giac-xuong {
+            width: 0;
+            height: 0;
+            border-width: 70px 40px 0 40px;
+            border-style: solid;
+            border-color: #f0ad4e transparent transparent transparent;
+        }
+
+        .tam-giac-trai {
+            width: 0;
+            height: 0;
+            border-width: 35px 70px 35px 0;
+            border-style: solid;
+            border-color: transparent #9b59b6 transparent transparent;
+        }
+
+        .tam-giac-phai {
+            width: 0;
+            height: 0;
+            border-width: 35px 0 35px 70px;
+            border-style: solid;
+            border-color: transparent transparent transparent #e67e22;
+        }
+
+        .hinh-thang {
+            width: 60px;
+            height: 0;
+            border-width: 0 25px 60px 25px;
+            border-style: solid;
+            border-color: transparent transparent #1abc9c transparent;
+        }
+
+        .tam-giac-rong {
+            width: 0;
+            height: 0;
+            border-width: 0 70px 35px 70px;
+            border-style: solid;
+            border-color: transparent transparent #34495e transparent;
+        }
+
+        .tam-giac-nhon {
+            width: 0;
+            height: 0;
+            border-width: 0 20px 90px 20px;
+            border-style: solid;
+            border-color: transparent transparent #c0392b transparent;
+        }
+
+        .tam-giac-can {
+            width: 0;
+            height: 0;
+            border-width: 0 35px 50px 35px;
+            border-style: solid;
+            border-color: transparent transparent #d35400 transparent;
+        }
+
+        .mui-ten-phai {
+            width: 0;
+            height: 0;
+            border-width: 30px 0 30px 50px;
+            border-style: solid;
+            border-color: transparent transparent transparent #16a085;
+        }
+
+        .mui-ten-trai {
+            width: 0;
+            height: 0;
+            border-width: 30px 50px 30px 0;
+            border-style: solid;
+            border-color: transparent #8e44ad transparent transparent;
+        }
+
+        .ribbon {
+            width: 0;
+            height: 0;
+            border-width: 30px 25px 30px 55px;
+            border-style: solid;
+            border-color: #e74c3c transparent #e74c3c #e74c3c;
+        }
+
+        /* --- F8 --- */
+        .f8-wrapper {
+            display: inline-block;
+            text-align: left;
+        }
+
+        .char-block {
+            display: inline-block;
+            margin-right: 15px;
+            vertical-align: top;
+        }
+
+        .f-top {
+            width: 50px;
+            height: 35px;
+            border-width: 25px 0 0 25px;
+            border-style: solid;
+            border-color: #d35400; }
+        .f-bot {
+            width: 50px;
+            height: 55px;
+            border-width: 25px 0 0 25px;
+            border-style: solid;
+            border-color: #d35400; }
+
+        .eight-top {
+            width: 30px;
+            height: 33px;
+            border-width: 25px 25px 12px 25px;
+            border-style: solid;
+            border-color: #d35400; }
+        .eight-bot {
+            width: 30px;
+            height: 32px;
+            border-width: 13px 25px 25px 25px;
+            border-style: solid;
+            border-color: #d35400; }
+    </style>
+</head>
+<body>
+
+<div class="shape-item">
+    <div class="hinh-vuong"></div>
+    <div class="shape-label">1. Hình vuông</div>
+</div>
+<div class="shape-item">
+    <div class="hinh-chu-nhat"></div>
+    <div class="shape-label">2. Hình chữ nhật</div>
+</div>
+<div class="shape-item">
+    <div class="tam-giac-len"></div>
+    <div class="shape-label">3. Tam giác lên</div>
+</div>
+<div class="shape-item">
+    <div class="tam-giac-xuong"></div>
+    <div class="shape-label">4. Tam giác xuống</div>
+</div>
+<div class="shape-item">
+    <div class="tam-giac-trai"></div>
+    <div class="shape-label">5. Tam giác trái</div>
+</div>
+<div class="shape-item">
+    <div class="tam-giac-phai"></div>
+    <div class="shape-label">6. Tam giác phải</div>
+</div>
+<div class="shape-item">
+    <div class="hinh-thang"></div>
+    <div class="shape-label">7. Hình thang</div>
+</div>
+<div class="shape-item">
+    <div class="tam-giac-rong"></div>
+    <div class="shape-label">8. Tam giác rộng</div>
+</div>
+<div class="shape-item">
+    <div class="tam-giac-nhon"></div>
+    <div class="shape-label">9. Tam giác nhọn</div>
+</div>
+<div class="shape-item">
+    <div class="tam-giac-can"></div>
+    <div class="shape-label">10. Tam giác cân</div>
+</div>
+<div class="shape-item">
+    <div class="mui-ten-phai"></div>
+    <div class="shape-label">11. Mũi tên phải</div>
+</div>
+<div class="shape-item">
+    <div class="mui-ten-trai"></div>
+    <div class="shape-label">12. Mũi tên trái</div>
+</div>
+<div class="shape-item">
+    <div class="ribbon"></div>
+    <div class="shape-label">13. Ribbon/Lá cờ</div>
+</div>
+<div class="shape-item">
+    <div class="f8-wrapper">
+        <div class="char-block">
+            <div class="f-top"></div>
+            <div class="f-bot"></div>
+        </div>
+        <div class="char-block">
+            <div class="eight-top"></div>
+            <div class="eight-bot"></div>
+        </div>
+    </div>
+    <div class="shape-label">14. F8</div>
+</div>
+
+</body>
+</html>

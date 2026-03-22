@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <style>
+        /*1. CÀI ĐẶT CƠ BẢN*/
+        body {
+            margin: 50px;
+        }
+
+        /* Ẩn hoàn toàn thẻ input checkbox */
+        #toast-toggle {
+            display: none;
+        }
+
+        /* 2. STYLE CHO NÚT MỞ THÔNG BÁO (open-btn) */
+        .open-btn {
+            display: inline-block;
+            background-color: #333;
+            color: #fff;
+            padding: 12px 20px;
+            font-size: 16px;
+            vertical-align: middle;
+        }
+
+        /*3. STYLE CHO HỘP THÔNG BÁO (toast)========================================= */
+        .toast {
+            display: none; /* TRẠNG THÁI MẶC ĐỊNH: Ẩn hoàn toàn khỏi trang */
+            background-color: #7EBC6F;
+            color: white;
+            padding: 15px 20px;
+            font-size: 18px;
+            margin-left: 20px;
+            vertical-align: middle;
+        }
+
+        .toast span {
+            margin-right: 15px;
+        }
+
+        /*4. STYLE CHO NÚT ĐÓNG (close-btn)========================================= */
+        .close-btn {
+            display: inline-block;
+            background-color: #579655;
+            color: white;
+            padding: 5px 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        /* Khi checkbox có id "toast-toggle" được check,
+           tìm thẻ có class ".toast" nằm cùng cấp phía sau nó và đổi thành hiển thị
+        */
+        #toast-toggle:checked ~ .toast {
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+
+<input type="checkbox" id="toast-toggle">
+
+<label for="toast-toggle" class="open-btn">Hiện thông báo</label>
+
+<div class="toast">
+    <span>🎉 Lưu thành công!</span>
+
+    <label for="toast-toggle" class="close-btn">&times;</label>
+</div>
+
+</body>
+</html>
