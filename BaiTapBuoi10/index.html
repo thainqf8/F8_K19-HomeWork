@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: "arial", "sans-serif";
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .header {
+            width: 100vw;
+            border-bottom: 0.0625rem solid #d1d1d1;
+        }
+
+        .header img {
+            width: 38px;
+            margin: 0.625rem;
+            vertical-align: middle;
+        }
+
+        .menu {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 0 0 3.125rem;
+            padding: 1.25rem;
+        }
+
+        .menu-list {
+            list-style: none;
+        }
+
+        .menu-item {
+            display: inline-block;
+            position: relative;
+            margin: 1.875rem;
+        }
+
+        .menu-item > a {
+            text-decoration: none;
+            color: #333333;
+            font-weight: bold;
+            padding-bottom: 0.5rem;
+            border-bottom: 0.1875rem solid transparent;
+            transition: 0.2s;
+        }
+
+        .menu-item:hover > a {
+            color: #d62828;
+            border-bottom: 0.1875rem solid #d62828;
+        }
+
+        .menu--second {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: #ffffff;
+            border: 0.0625rem solid #dddddd;
+            min-width: 12.5rem;
+            list-style: none;
+            z-index: 10;
+        }
+
+        .menu-item:hover > .menu--second {
+            display: block;
+        }
+
+        .menu--second li {
+            position: relative;
+        }
+
+        .menu--second li > a {
+            display: block;
+            text-decoration: none;
+            color: #333333;
+            padding: 0.375rem 0.625rem;
+            transition: 0.2s;
+        }
+
+        .menu--second li:hover > a {
+            background-color: #f5f5f5;
+            color: #d62828;
+        }
+
+        .menu--third {
+            display: none;
+            position: absolute;
+            top: -0.0625rem;
+            left: 100%;
+            background: #ffffff;
+            border: 0.0625rem solid #dddddd;
+            min-width: 12.5rem;
+            z-index: 20;
+        }
+
+        .menu--second li:hover > .menu--third {
+            /*display: block;*/
+        }
+
+        .menu--third li > a {
+            display: block;
+            text-decoration: none;
+            color: #333333;
+            padding: 0.375rem 0.625rem;
+        }
+
+        .menu--third li:hover > a {
+            background-color: #f5f5f5;
+            color: #d62828;
+        }
+    </style>
+</head>
+<body>
+<header class="header">
+    <img src="https://fullstack.edu.vn/assets/f8-icon-lV2rGpF0.png" alt="logo">
+    <nav class="menu">
+        <ul class="menu-list">
+            <li class="menu-item">
+                <a href="#">Thời sự ▾</a>
+                <ul class="menu--second">
+                    <li><a href="#">Chính trị</a></li>
+                    <li>
+                        <a href="#">Xã hội ▸</a>
+                        <ul class="menu--third">
+                            <li><a href="#">Giao thông</a></li>
+                            <li><a href="#">Môi trường</a></li>
+                            <li><a href="#">Đời sống đô thị</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Pháp luật</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#">Thế giới ▾</a>
+                <ul class="menu--second">
+                    <li>
+                        <a href="#">Khu vực ▸</a>
+                        <ul class="menu--third">
+                            <li><a href="#">Châu Á</a></li>
+                            <li><a href="#">Châu Âu</a></li>
+                            <li><a href="#">Châu Mỹ</a></li>
+                            <li><a href="#">Trung Đông</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Phân tích</a></li>
+                    <li><a href="#">Hồ sơ</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#">Kinh doanh ▾</a>
+                <ul class="menu--second">
+                    <li><a href="#">Doanh nghiệp</a></li>
+                    <li><a href="#">Chứng khoán</a></li>
+                    <li>
+                        <a href="#">Tài chính cá nhân ▸</a>
+                        <ul class="menu--third">
+                            <li><a href="#">Tiết kiệm</a></li>
+                            <li><a href="#">Đầu tư</a></li>
+                            <li><a href="#">Bảo hiểm</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Bất động sản</a></li>
+                </ul>
+            </li>
+            <li class="menu-item">
+                <a href="#">Góc nhìn ▾</a>
+                <ul class="menu--second">
+                    <li><a href="#">Bình luận</a></li>
+                    <li>
+                        <a href="#">Chuyên gia ▸</a>
+                        <ul class="menu--third">
+                            <li><a href="#">Kinh tế</a></li>
+                            <li><a href="#">Xã hội</a></li>
+                            <li><a href="#">Công nghệ</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Tác giả</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+</header>
+</body>
+</html>

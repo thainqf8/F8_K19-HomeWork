@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng ký tư vấn</title>
+    <style>
+        /* Thiết lập rem theo yêu cầu */
+        :root {
+            font-size: 16px;
+        }
+
+        /* Reset cơ bản và dùng các thuộc tính được phép */
+        * {
+            font-family: "arial", "sans-serif";
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        /*dùng position fixed để tạo full màn hình */
+        .page-wrapper {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-image: linear-gradient(135deg, #a855f7 0, #c084fc);
+            z-index: 1;
+        }
+
+        /* Nút Mở Modal - Căn giữa tuyệt đối bằng position và margin: auto */
+        .btn-open-modal {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 12.5rem;
+            height: 3rem;
+            background: #f05123;
+            color: #ffffff;
+            text-align: center;
+            line-height: 3rem;
+            border-radius: 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10;
+        }
+
+        .btn-open-modal:hover {
+            background: #d8431c;
+        }
+
+        /* Checkbox ẩn để quản lý trạng thái modal */
+        .modal-toggle {
+            display: none;
+        }
+
+        /* Modal Container */
+        .modal-container {
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        /* Hiển thị modal khi checkbox được checked */
+        .modal-toggle:checked ~ .modal-container {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Lớp phủ tối màu - Bấm vào sẽ đóng modal nhờ thẻ label */
+        .modal-overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+
+        /* Nội dung Modal - Căn giữa tuyệt đối */
+        .modal-content {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            width: 34rem;
+            height: 48rem;
+            background: #ffffff;
+            border-radius: 1rem;
+            padding: 2.5rem 2rem;
+            z-index: 1000;
+            overflow: auto;
+        }
+
+        /* Nút X đóng modal */
+        .modal-close {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            font-size: 1.5rem;
+            color: #64748b;
+            cursor: pointer;
+            line-height: 1rem;
+        }
+
+        .modal-close:hover {
+            color: #1e293b;
+        }
+
+        /* Typography */
+        .modal-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            color: #64748b;
+        }
+
+        .required {
+            color: #ef4444;
+        }
+
+        /* Form Layout */
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #334155;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Input Wrappers để định vị Tooltip */
+        .input-wrapper {
+            position: relative;
+        }
+
+        .input-field {
+            width: 30rem;
+            height: 3rem;
+            padding: 0 1rem;
+            border: 0.0625rem solid #e2e8f0;
+            border-radius: 0.25rem;
+            background: #f8fafc;
+            font-size: 1rem;
+            color: #1e293b;
+            outline: none;
+        }
+
+        .input-field:focus {
+            border-color: #c084fc;
+        }
+
+        /* Tooltip Chung */
+        .tooltip {
+            position: absolute;
+            left: 0;
+            background: #1e293b;
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            font-size: 0.875rem;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 100;
+            white-space: normal;
+            line-height: 1.25rem;
+        }
+
+        /* Mũi tên Tooltip bằng border trick */
+        .tooltip::after {
+            content: "";
+            position: absolute;
+            bottom: -0.5rem;
+            left: 1rem;
+            border-width: 0.5rem 0.5rem 0 0.5rem;
+            border-style: solid;
+            border-color: #1e293b transparent transparent transparent;
+        }
+
+        /* Tooltip cho Input (Nằm trên input) */
+        .input-tooltip {
+            bottom: 3.5rem;
+            width: 18rem;
+        }
+
+        /* Tooltip cho Checkbox (Nằm trên checkbox item) */
+        .checkbox-tooltip {
+            bottom: 2rem;
+            width: 15rem;
+        }
+
+        /* Hiện tooltip NGAY LẬP TỨC khi hover (Không animation) */
+        .input-wrapper input:hover + .input-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .checkbox-item:hover .checkbox-tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Danh sách Checkbox */
+        .checkbox-list {
+            margin-top: 0.5rem;
+        }
+
+        .checkbox-item {
+            position: relative;
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        /* Dùng relative top để căn chỉnh dòng */
+        .checkbox-item input[type="checkbox"] {
+            width: 1.125rem;
+            height: 1.125rem;
+            margin-right: 0.5rem;
+            cursor: pointer;
+            position: relative;
+            top: 0.125rem;
+        }
+
+        .checkbox-item label {
+            font-size: 1rem;
+            color: #334155;
+            cursor: pointer;
+        }
+
+        /* Nút Submit Form */
+        .btn-submit {
+            display: block;
+            width: 30rem;
+            height: 3.5rem;
+            background: #a855f7;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.125rem;
+            border: none;
+            border-radius: 1.75rem;
+            cursor: pointer;
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .btn-submit:hover {
+            background: #9333ea;
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-wrapper">
+    <label for="modal-toggle" class="btn-open-modal">Tư vấn ngay</label>
+</div>
+
+<input type="checkbox" id="modal-toggle" class="modal-toggle">
+
+<div class="modal-container">
+    <label for="modal-toggle" class="modal-overlay"></label>
+
+    <div class="modal-content">
+        <label for="modal-toggle" class="modal-close">&#10005;</label>
+
+        <div class="modal-header">
+            <div class="title">Đăng ký tư vấn</div>
+            <div class="subtitle">Điền thông tin để được tư vấn lộ trình học phù hợp</div>
+        </div>
+
+        <form action="https://api-gateway.fullstack.edu.vn/action_page.php" method="POST">
+
+            <div class="form-group">
+                <label class="form-label" for="fullname">Họ và tên <span class="required">*</span></label>
+                <div class="input-wrapper">
+                    <input type="text" id="fullname" class="input-field" placeholder="Nguyễn Văn A" required>
+                    <div class="tooltip input-tooltip">Nhập họ và tên đầy đủ của bạn</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="phone">Số điện thoại <span class="required">*</span></label>
+                <div class="input-wrapper">
+                    <input type="tel" id="phone" class="input-field" placeholder="0912345678" required>
+                    <div class="tooltip input-tooltip">Số điện thoại để chúng tôi liên hệ tư vấn</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="email">Email</label>
+                <div class="input-wrapper">
+                    <input type="email" id="email" class="input-field" placeholder="example@gmail.com">
+                    <div class="tooltip input-tooltip">Email nhận thông tin khóa học (không bắt buộc)</div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="form-label">Khóa học quan tâm <span class="required">*</span></label>
+                <div class="checkbox-list">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="c_html">
+                        <label for="c_html">HTML & CSS</label>
+                        <div class="tooltip checkbox-tooltip">Khóa nền tảng xây dựng giao diện web</div>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="c_js">
+                        <label for="c_js">JavaScript</label>
+                        <div class="tooltip checkbox-tooltip">Ngôn ngữ lập trình cho web động</div>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="c_frontend">
+                        <label for="c_frontend">Front-end lộ trình</label>
+                        <div class="tooltip checkbox-tooltip">Lộ trình hoàn chỉnh trở thành Front-end Developer</div>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="c_react">
+                        <label for="c_react">ReactJS</label>
+                        <div class="tooltip checkbox-tooltip">Thư viện JavaScript phổ biến nhất hiện nay</div>
+                    </div>
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="c_unknown">
+                        <label for="c_unknown">Chưa rõ – cần tư vấn</label>
+                        <div class="tooltip checkbox-tooltip">Chúng tôi sẽ tư vấn lộ trình phù hợp với bạn</div>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit">ĐĂNG KÝ TƯ VẤN NGAY</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
