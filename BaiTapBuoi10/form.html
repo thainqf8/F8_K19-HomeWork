@@ -9,7 +9,7 @@
             font-size: 16px;
         }
 
-        /* Reset cơ bản và dùng các thuộc tính được phép */
+        /* Reset cơ bản*/
         * {
             font-family: "arial", "sans-serif";
             box-sizing: border-box;
@@ -101,7 +101,6 @@
             border-radius: 1rem;
             padding: 2.5rem 2rem;
             z-index: 1000;
-            overflow: auto;
         }
 
         /* Nút X đóng modal */
@@ -186,8 +185,6 @@
             visibility: hidden;
             opacity: 0;
             z-index: 100;
-            white-space: normal;
-            line-height: 1.25rem;
         }
 
         /* Mũi tên Tooltip bằng border trick */
@@ -213,7 +210,7 @@
             width: 15rem;
         }
 
-        /* Hiện tooltip NGAY LẬP TỨC khi hover (Không animation) */
+        /* Hiện tooltip khi hover */
         .input-wrapper input:hover + .input-tooltip {
             visibility: visible;
             opacity: 1;
