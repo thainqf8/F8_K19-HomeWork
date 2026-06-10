@@ -1,0 +1,32 @@
+{
+  "customers": [
+    {
+      "name": "Nguyen Van A",
+      "email": "contact@gmail.com",
+      "phone": "098674361",
+      "address": "Ha Noi",
+      "taxId": "232434631",
+      "status": "Inactive",
+      "id": "CUST-001"
+    },
+    {
+      "name": "a",
+      "email": "a@gmail.comsss",
+      "phone": "a",
+      "address": "a",
+      "taxId": "a",
+      "status": "Active",
+      "id": "nx-M2KlhxgQ"
+    },
+    {
+      "name": "a",
+      "email": "a@gmail.com",
+      "phone": "a",
+      "address": "a",
+      "taxId": "a",
+      "status": "Active",
+      "id": "EutXyzlIUhM"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
